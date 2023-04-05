@@ -1,0 +1,17 @@
+{
+  "ExtendedData": {
+    "inputs": [
+      "http://localhost/tienda_login_v1/ws/login.asmx"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, ServiceReferenceLogin"
+    ],
+    "sync": true,
+    "targetFramework": "net6.0",
+    "typeReuseMode": "None"
+  }
+}
