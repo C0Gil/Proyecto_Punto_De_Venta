@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Proyecto_Punto_Venta.Vista;
 
-namespace Proyecto_Punto_Venta
+namespace Proyecto_Punto_Venta.Vista
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para InicioSesion.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InicioSesion : Window
     {
-        public MainWindow()
+        public InicioSesion()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            InicioSesion inicioSesion = new InicioSesion();
-            this.Close();
-            inicioSesion.Show();
         }
     }
 }

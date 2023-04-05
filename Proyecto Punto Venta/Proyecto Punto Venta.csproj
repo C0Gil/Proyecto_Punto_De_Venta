@@ -11,7 +11,7 @@
   <ItemGroup>
     <Folder Include="Modelo\" />
     <Folder Include="VistaModelo\" />
-    <Folder Include="Vista\" />
+	<Folder Include="Vista\" />
   </ItemGroup>
 
 </Project>

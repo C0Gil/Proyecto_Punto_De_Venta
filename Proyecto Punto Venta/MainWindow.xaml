@@ -6,16 +6,23 @@
         xmlns:local="clr-namespace:Proyecto_Punto_Venta"
         mc:Ignorable="d"
         Title="Punto de Venta" Height="720" Width="1280"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Background="#fffffe">
     <Grid>
-        <Label Content="Inicia Sesion" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="16" Margin="0,307,0,0"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="16"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="100" Width="220"/>
 
-        <Label Content="Usuario" HorizontalAlignment="Center" Margin="0,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.413,-0.63" Width="240" FontSize="16"/>
-        <Label Content="Contraseña" HorizontalAlignment="Center" VerticalAlignment="Top" Width="240" Margin="0,352,0,0" FontSize="16"/>
-
-        <Button Content="Iniciar Sesión" HorizontalAlignment="Center" Margin="0,441,0,0" VerticalAlignment="Top" Height="26" Width="140"/>
+        <StackPanel Grid.Row="1">
+            <Button Content="Inicio Sesion" Width="200" Margin="10,10,0,0" Click="Button_Click"></Button>
+        </StackPanel>
     </Grid>
+
 </Window>
