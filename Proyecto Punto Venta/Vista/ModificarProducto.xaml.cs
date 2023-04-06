@@ -15,21 +15,16 @@ using System.Windows.Shapes;
 namespace Proyecto_Punto_Venta.Vista
 {
     /// <summary>
-    /// Lógica de interacción para InsertarProductos.xaml
+    /// Lógica de interacción para ModificarProducto.xaml
     /// </summary>
-    public partial class InsertarProductos : Window
+    public partial class ModificarProducto : Window
     {
-        public InsertarProductos()
+        public ModificarProducto()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

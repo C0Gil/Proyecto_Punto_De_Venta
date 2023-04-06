@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Proyecto_Punto_Venta.Vista"
         mc:Ignorable="d"
         Title="InicioSesion" Height="720" Width="1280"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Background="#fffffe">
     <Grid>
         <Label Content="Inicia Sesion" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" FontSize="36"/>
 

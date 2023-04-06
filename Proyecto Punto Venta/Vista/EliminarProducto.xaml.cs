@@ -10,37 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Proyecto_Punto_Venta.Vista
 {
     /// <summary>
-    /// Lógica de interacción para Inventario.xaml
+    /// Lógica de interacción para EliminarProducto.xaml
     /// </summary>
-    public partial class Inventario : UserControl
+    public partial class EliminarProducto : Window
     {
-        public Inventario()
+        public EliminarProducto()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            InsertarProductos insertar = new InsertarProductos();
-            insertar.Show();
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            EliminarProducto eliminar= new EliminarProducto();
-            eliminar.Show();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            ModificarProducto modificar = new ModificarProducto();
-            modificar.Show();
+            this.Close();
         }
     }
 }
