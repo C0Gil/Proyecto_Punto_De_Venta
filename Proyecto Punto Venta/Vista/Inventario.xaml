@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Proyecto_Punto_Venta.Vista.Inventario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Proyecto_Punto_Venta.Vista"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+
+        <TextBlock Text="Inventario" FontSize="32" FontWeight="Bold"/>
+        
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+            <StackPanel Width="545">
+                <TextBlock Text="Lista De Productos" FontSize="16" Margin="10,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Width="150" Margin="0,0,10,0" />
+                <Button Content="Buscar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="650">
+                <DataGrid d:ItemsSource="{d:SampleData ItemCount=15}"/>
+            </StackPanel>
+            <StackPanel Width="150">
+                <Button Content="Agregar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="0,20,0,10"/>
+                <Button Content="Eliminar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="0,10,0,10"/>
+                <Button Content="Modificar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="0,10,0,10"/>
+            </StackPanel>
+        </StackPanel>
+        
+    </StackPanel>
+</UserControl>

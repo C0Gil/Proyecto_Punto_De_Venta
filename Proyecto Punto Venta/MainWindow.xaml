@@ -4,11 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Punto_Venta"
+        xmlns:viewModel="clr-namespace:Proyecto_Punto_Venta.VistaModelo"
         mc:Ignorable="d"
         Title="Punto de Venta" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         Background="#fffffe">
+
+    <Window.DataContext>
+        <viewModel:VistaModeloPrincipal/>
+    </Window.DataContext>
 
     <Border Background="#fffffe"
             CornerRadius="35">
@@ -31,10 +36,18 @@
                        FontSize="20"/>
 
             <StackPanel Grid.Row="1">
-                <Button Content="Inicio De Sesion" Margin="10" Click="Button_Click"/>
-                <Button Content="Inventario" Margin="10"/>
-                <Button Content="Historial De Ventas" Margin="10"/>
-                <Button Content="Generar Reportes" Margin="10"/>
+                <RadioButton Content="Ventas" Margin="10" IsChecked="True" Height="30"
+                             Style="{StaticResource BotonMenuPrincipal}"
+                             Command="{Binding VentasVMCommand}"/>
+                <RadioButton Content="Inicio De Sesion" Margin="10" Height="30" Click="Button_Click"
+                             Style="{StaticResource BotonMenuPrincipal}"/>
+                <RadioButton Content="Inventario" Height="30" Margin="10"
+                             Style="{StaticResource BotonMenuPrincipal}"
+                             Command="{Binding InventarioVMCommand}"/>
+                <RadioButton Content="Historial De Ventas" Height="30" Margin="10"
+                             Style="{StaticResource BotonMenuPrincipal}"/>
+                <RadioButton Content="Generar Reportes" Height="30" Margin="10"
+                             Style="{StaticResource BotonMenuPrincipal}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
@@ -42,7 +55,8 @@
             </StackPanel>
             <TextBox Grid.Column="1" Width="200" Height="20" Margin="650,40,35,40"/>
 
-            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10"/>
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10"
+                            Content="{Binding CurrentView}"/>
 
 
         </Grid>

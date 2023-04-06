@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Modelo\" />
-    <Folder Include="VistaModelo\" />
-	<Folder Include="Vista\" />
   </ItemGroup>
 
   <ItemGroup>
