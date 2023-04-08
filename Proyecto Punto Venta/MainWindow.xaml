@@ -45,9 +45,8 @@
                              Style="{StaticResource BotonMenuPrincipal}"
                              Command="{Binding InventarioVMCommand}"/>
                 <RadioButton Content="Historial De Ventas" Height="30" Margin="10"
-                             Style="{StaticResource BotonMenuPrincipal}"/>
-                <RadioButton Content="Generar Reportes" Height="30" Margin="10"
-                             Style="{StaticResource BotonMenuPrincipal}"/>
+                             Style="{StaticResource BotonMenuPrincipal}"
+                             Command="{Binding HistorialVVMCommand}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">

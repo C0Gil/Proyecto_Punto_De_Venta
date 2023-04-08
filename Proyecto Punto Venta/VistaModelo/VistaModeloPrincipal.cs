@@ -13,9 +13,13 @@ namespace Proyecto_Punto_Venta.VistaModelo
 
         public RelayCommand InventarioVMCommand { get; set; }
 
+        public RelayCommand HistorialVVMCommand { get; set; }
+
         public VistaModeloVentas VentasVM { get; set; }
 
         public VistaModeloInventario InventarioVM { get; set; }
+
+        public VistaModeloHistorialV HistorialVVM { get; set; }
 
         private object _currentView;
 
@@ -34,6 +38,8 @@ namespace Proyecto_Punto_Venta.VistaModelo
         {
             VentasVM= new VistaModeloVentas();
             InventarioVM= new VistaModeloInventario();
+            HistorialVVM = new VistaModeloHistorialV();
+
 
             CurrentView = VentasVM;
 
@@ -44,6 +50,10 @@ namespace Proyecto_Punto_Venta.VistaModelo
             InventarioVMCommand = new RelayCommand(o =>
             {
                 CurrentView = InventarioVM;
+            });
+            HistorialVVMCommand = new RelayCommand(o => 
+            { 
+                CurrentView = HistorialVVM;
             });
         }
     }

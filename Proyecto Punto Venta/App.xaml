@@ -21,6 +21,10 @@
                 <view:Inventario/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:VistaModeloHistorialV}">
+                <view:HistorialVentas/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
