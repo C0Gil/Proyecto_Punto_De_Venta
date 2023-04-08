@@ -32,5 +32,10 @@ namespace Proyecto_Punto_Venta
             this.Close();
             inicioSesion.Show();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

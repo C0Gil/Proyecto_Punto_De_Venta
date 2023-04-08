@@ -5,29 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto_Punto_Venta.Vista"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="1060">
     <StackPanel>
 
         <TextBlock Text="Inventario" FontSize="32" FontWeight="Bold"/>
         
         <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
-            <StackPanel Width="545">
-                <TextBlock Text="Lista De Productos" FontSize="16" Margin="10,0,0,0"/>
+            <StackPanel Width="760">
+                <TextBlock Text="Lista De Productos" FontSize="16" FontWeight="DemiBold" Margin="10,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBox Width="150" Margin="0,0,10,0" />
-                <Button Content="Buscar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="25"/>
+                <TextBox x:Name="txtBusqueda" TextAlignment="Center" VerticalAlignment="Center" Width="150" Margin="0,0,10,0" TextChanged="txtBusqueda_TextChanged" FontSize="14" />
+                <Button Content="Buscar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="25" Click="Button_Click_3"
+                        Style="{StaticResource ButonNormal}"/>
             </StackPanel>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal">
-            <StackPanel Width="650">
+            <StackPanel Width="830">
                 <DataGrid d:ItemsSource="{d:SampleData ItemCount=15}"/>
             </StackPanel>
-            <StackPanel Width="150">
-                <Button Content="Agregar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25" Margin="0,20,0,10" Click="Button_Click"/>
-                <Button Content="Eliminar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25" Margin="0,10,0,10" Click="Button_Click_1"/>
-                <Button Content="Modificar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25" Margin="0,10,0,10" Click="Button_Click_2"/>
+            <StackPanel Width="200">
+                <Button Content="Agregar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,20,0,10" Click="Button_Click"
+                        Style="{StaticResource ButonNormal}"/>
+                <Button Content="Eliminar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,10,0,10" Click="Button_Click_1"
+                        Style="{StaticResource ButonNormal}"/>
+                <Button Content="Modificar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,10,0,10" Click="Button_Click_2"
+                        Style="{StaticResource ButonNormal}"/>
             </StackPanel>
         </StackPanel>
         

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Proyecto_Punto_Venta.Core;
+using ServiceReferenceCrud;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,6 +44,40 @@ namespace Proyecto_Punto_Venta.Vista
         {
             ModificarProducto modificar = new ModificarProducto();
             modificar.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string direccionServicioWeb1 = "http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx";
+
+            BasicHttpBinding basicHttp = new();
+            EndpointAddress endpoint = new(direccionServicioWeb1);
+            CrudProductosSoapClient clientBusqueda1 = new(basicHttp, endpoint);
+
+            try
+            {
+                string resultadoBusqueda = null;
+                if(txtBusqueda.Text.Length > 0) {
+                    resultadoBusqueda = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString()));
+                    MessageBox.Show(resultadoBusqueda);
+                }
+                else
+                {
+                    resultadoBusqueda = "Ingresa el id de un producto para buscarlo";
+                    MessageBox.Show(resultadoBusqueda);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar producto: " + ex.Message);
+                throw;
+            }
+        }
+
+        private void txtBusqueda_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
         }
     }
 }

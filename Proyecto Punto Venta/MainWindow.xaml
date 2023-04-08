@@ -36,24 +36,40 @@
                        FontSize="20"/>
 
             <StackPanel Grid.Row="1">
-                <RadioButton Content="Ventas" Margin="10" IsChecked="True" Height="30"
+                <RadioButton Content="Ventas" Margin="10, 10, 10, 5" IsChecked="True" Height="40"
                              Style="{StaticResource BotonMenuPrincipal}"
                              Command="{Binding VentasVMCommand}"/>
-                <RadioButton Content="Inicio De Sesion" Margin="10" Height="30" Click="Button_Click"
-                             Style="{StaticResource BotonMenuPrincipal}"/>
-                <RadioButton Content="Inventario" Height="30" Margin="10"
+                
+                <RadioButton Content="Inventario" Height="40" Margin="10,5"
                              Style="{StaticResource BotonMenuPrincipal}"
                              Command="{Binding InventarioVMCommand}"/>
-                <RadioButton Content="Historial De Ventas" Height="30" Margin="10"
+                
+                <RadioButton Content="Historial De Ventas" Height="40" Margin="10,5"
                              Style="{StaticResource BotonMenuPrincipal}"
                              Command="{Binding HistorialVVMCommand}"/>
+
+                <RadioButton Content="Salir" Height="40" Margin="10,380"
+                             Style="{StaticResource BotonSalir}" Checked="RadioButton_Checked"/>
+                
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Button Content="Buscar" Width="80" Height="20" Margin="950, 30"/>
-            </StackPanel>
-            <TextBox Grid.Column="1" Width="200" Height="20" Margin="650,40,35,40"/>
 
+                <!--<Button Content="Buscar" Width="80" Height="20" Margin="900, 30"/>-->
+                <StackPanel Orientation="Horizontal" Margin="560,0, 0, 0">
+                    <TextBox Width="200" Height="25" Margin="10,0, 5, 0"/>
+                    <Button Width="100" Height="25" Content="Buscar" Margin="5,0, 5, 0"
+                            Style="{StaticResource ButonNormal}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Inicio De Sesion" Width="120" Height="25" Margin="5,0, 10, 0" Click="Button_Click"
+                            Style="{StaticResource ButonNormal}"/>
+                </StackPanel>
+                
+                
+            </StackPanel>
+            <!--<TextBox Grid.Column="1" Width="200" Height="20" Margin="692,43,168,37"/>-->
+            
             <ContentControl Grid.Row="1" Grid.Column="1" Margin="10"
                             Content="{Binding CurrentView}"/>
 

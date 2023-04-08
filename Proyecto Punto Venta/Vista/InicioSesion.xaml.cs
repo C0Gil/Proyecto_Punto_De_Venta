@@ -46,6 +46,9 @@ namespace Proyecto_Punto_Venta.Vista
             {
                 // Iniciar sesión exitosa
                 MessageBox.Show("Inicio de sesión exitoso");
+                MainWindow mainWindow = new MainWindow();
+                this.Close();
+                mainWindow.Show();
                 // Aquí puedes abrir la ventana principal de tu aplicación
             }
             else
@@ -53,9 +56,6 @@ namespace Proyecto_Punto_Venta.Vista
                 // Iniciar sesión fallida
                 MessageBox.Show("Inicio de sesión fallido");
             }
-
-
-
         }
     }
 }

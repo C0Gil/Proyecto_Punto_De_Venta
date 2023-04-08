@@ -9,8 +9,12 @@
     <Application.Resources>
 
         <ResourceDictionary>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Assets/Temas/BotonesMenuPrincipal.xaml"/>
+                <ResourceDictionary Source="Assets/Temas/BotonSalir.xaml"/>
+                <ResourceDictionary Source="Assets/Temas/BotonNormal.xaml"/>
+                <ResourceDictionary Source="Assets/Temas/BotonNegativo.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:VistaModeloVentas}">
@@ -24,7 +28,7 @@
             <DataTemplate DataType="{x:Type viewModel:VistaModeloHistorialV}">
                 <view:HistorialVentas/>
             </DataTemplate>
-
+          
         </ResourceDictionary>
     </Application.Resources>
 </Application>
