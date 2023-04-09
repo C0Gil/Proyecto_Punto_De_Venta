@@ -13,7 +13,7 @@
                 <TextBlock Text="Lista De Ventas" FontSize="16" Margin="10,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="418,0">
-                <TextBox Width="150" Margin="0,0,10,0"/>
+                <TextBox Width="150" Margin="0,0,10,0" VerticalAlignment="Center" TextAlignment="Right" FontSize="14"/>
                 <Button Content="Buscar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="25"
                         Style="{StaticResource ButonNormal}"/>
                 <Button Content="Corte De Caja" Width="100" Height="25" Margin="10,0" 
