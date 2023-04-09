@@ -53,8 +53,7 @@ namespace Proyecto_Punto_Venta.Vista
                 else if(categoria == cadenaCMB + "Carnes") { categoriaReal = 2; }
                 else if(categoria == cadenaCMB + "Semillas") { categoriaReal = 3;}
 
-                client2.InsertarProducto(int.Parse(txtCodigo.Text), txtProducto.Text.ToString(), double.Parse(txtPrecio.Text.ToString()), double.Parse(txtCosto.Text.ToString()), DateTime.Now, int.Parse(txtStock.Text.ToString()), disponibilidad, categoriaReal);
-                //client2.InsertarProducto(847159, "Producto8", 50.50, 45.50, DateTime.ParseExact(auxiliarFecha, "yyyy/mm/dd", CultureInfo.InvariantCulture), 10, disponibilidad, 1);
+                client2.InsertarProducto(int.Parse(txtCodigo.Text), txtProducto.Text.ToString(), double.Parse(txtPrecio.Text.ToString()), double.Parse(txtCosto.Text.ToString()), fechaCaducidad, int.Parse(txtStock.Text.ToString()), disponibilidad, categoriaReal);
                 
                 MessageBox.Show("Producto agregado con exito");
                 LimpiarFormulario();

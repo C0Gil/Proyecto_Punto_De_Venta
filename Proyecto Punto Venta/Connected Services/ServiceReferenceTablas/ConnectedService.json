@@ -1,14 +1,14 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx"
+      "http://localhost/WebService_PuntoVenta/ws/DatosTablas.asmx"
     ],
     "collectionTypes": [
       "System.Array",
       "System.Collections.Generic.Dictionary`2"
     ],
     "namespaceMappings": [
-      "*, ServiceReferenceCrud"
+      "*, ServiceReferenceTablas"
     ],
     "sync": true,
     "targetFramework": "net6.0",

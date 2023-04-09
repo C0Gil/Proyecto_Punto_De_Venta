@@ -9,7 +9,120 @@
 
 namespace ServiceReferenceCrud
 {
+    using System.Runtime.Serialization;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ValueTupleOfStringStringStringStringStringStringString", Namespace="http://tempuri.org/")]
+    public partial class ValueTupleOfStringStringStringStringStringStringString : object
+    {
+        
+        private string Item1Field;
+        
+        private string Item2Field;
+        
+        private string Item3Field;
+        
+        private string Item4Field;
+        
+        private string Item5Field;
+        
+        private string Item6Field;
+        
+        private string Item7Field;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Item1
+        {
+            get
+            {
+                return this.Item1Field;
+            }
+            set
+            {
+                this.Item1Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Item2
+        {
+            get
+            {
+                return this.Item2Field;
+            }
+            set
+            {
+                this.Item2Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Item3
+        {
+            get
+            {
+                return this.Item3Field;
+            }
+            set
+            {
+                this.Item3Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Item4
+        {
+            get
+            {
+                return this.Item4Field;
+            }
+            set
+            {
+                this.Item4Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Item5
+        {
+            get
+            {
+                return this.Item5Field;
+            }
+            set
+            {
+                this.Item5Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Item6
+        {
+            get
+            {
+                return this.Item6Field;
+            }
+            set
+            {
+                this.Item6Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Item7
+        {
+            get
+            {
+                return this.Item7Field;
+            }
+            set
+            {
+                this.Item7Field = value;
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceCrud.CrudProductosSoap")]
@@ -409,13 +522,13 @@ namespace ServiceReferenceCrud
     {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string BuscarProductoResult;
+        public ServiceReferenceCrud.ValueTupleOfStringStringStringStringStringStringString BuscarProductoResult;
         
         public BuscarProductoResponseBody()
         {
         }
         
-        public BuscarProductoResponseBody(string BuscarProductoResult)
+        public BuscarProductoResponseBody(ServiceReferenceCrud.ValueTupleOfStringStringStringStringStringStringString BuscarProductoResult)
         {
             this.BuscarProductoResult = BuscarProductoResult;
         }
@@ -585,7 +698,7 @@ namespace ServiceReferenceCrud
             return base.Channel.BuscarProducto(request);
         }
         
-        public string BuscarProducto(int idpro)
+        public ServiceReferenceCrud.ValueTupleOfStringStringStringStringStringStringString BuscarProducto(int idpro)
         {
             ServiceReferenceCrud.BuscarProductoRequest inValue = new ServiceReferenceCrud.BuscarProductoRequest();
             inValue.Body = new ServiceReferenceCrud.BuscarProductoRequestBody();

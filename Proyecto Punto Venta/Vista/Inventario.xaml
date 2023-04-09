@@ -15,7 +15,7 @@
                 <TextBlock Text="Lista De Productos" FontSize="16" FontWeight="DemiBold" Margin="10,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="txtBusqueda" TextAlignment="Center" VerticalAlignment="Center" Width="150" Margin="0,0,10,0" TextChanged="txtBusqueda_TextChanged" FontSize="14" />
+                <TextBox x:Name="txtBusqueda" TextAlignment="Center" VerticalAlignment="Center" Width="150" Margin="0,0,10,0" FontSize="14" />
                 <Button Content="Buscar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="25" Click="Button_Click_3"
                         Style="{StaticResource ButonNormal}"/>
             </StackPanel>
@@ -23,7 +23,8 @@
         
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="830">
-                <DataGrid d:ItemsSource="{d:SampleData ItemCount=15}"/>
+                <!--<DataGrid x:Name="gvTablaInventario" d:ItemsSource="{d:SampleData ItemCount=15}" SelectionChanged="DataGrid_SelectionChanged"/>-->
+                <DataGrid x:Name="gvInventario" d:ItemsSource="{d:SampleData ItemCount=15}" SelectionChanged="gvInventario_SelectionChanged"/>
             </StackPanel>
             <StackPanel Width="200">
                 <Button Content="Agregar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,20,0,10" Click="Button_Click"
@@ -32,6 +33,8 @@
                         Style="{StaticResource ButonNormal}"/>
                 <Button Content="Modificar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,10,0,10" Click="Button_Click_2"
                         Style="{StaticResource ButonNormal}"/>
+                <Button Content="Actualizar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,10,0,10"
+                        Style="{StaticResource ButonNormal}" Click="Button_Click_4"/>
             </StackPanel>
         </StackPanel>
         

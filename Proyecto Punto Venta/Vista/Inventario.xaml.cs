@@ -1,5 +1,6 @@
 ﻿using Proyecto_Punto_Venta.Core;
 using ServiceReferenceCrud;
+using ServiceReferenceTablas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,7 @@ namespace Proyecto_Punto_Venta.Vista
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             string direccionServicioWeb1 = "http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx";
+            string id, producto, pVenta, pCompra, stock, disponibilidad, categoria;
 
             BasicHttpBinding basicHttp = new();
             EndpointAddress endpoint = new(direccionServicioWeb1);
@@ -56,15 +58,24 @@ namespace Proyecto_Punto_Venta.Vista
 
             try
             {
-                string resultadoBusqueda = null;
-                if(txtBusqueda.Text.Length > 0) {
-                    resultadoBusqueda = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString()));
-                    MessageBox.Show(resultadoBusqueda);
+
+                if (txtBusqueda.Text.Length > 0) {
+
+                    id = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString())).Item1;
+                    producto = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString())).Item2;
+                    pVenta = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString())).Item3;
+                    pCompra = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString())).Item4;
+                    stock = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString())).Item5;
+                    disponibilidad = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString())).Item6;
+                    categoria = clientBusqueda1.BuscarProducto(int.Parse(txtBusqueda.Text.ToString())).Item7;
+
+                    MessageBox.Show("ID: " + id + "\nNombre: " + producto + "\nPrecio de Venta: " + 
+                        pVenta + "\nPrecio de Venta" + pCompra + "\nStock" + stock + "\nDisponible: " + 
+                        disponibilidad + "\nCategoria: " + categoria);
                 }
                 else
                 {
-                    resultadoBusqueda = "Ingresa el id de un producto para buscarlo";
-                    MessageBox.Show(resultadoBusqueda);
+                    MessageBox.Show("Ingresa el id de un producto para buscarlo");
                 }
                 
             }
@@ -75,9 +86,20 @@ namespace Proyecto_Punto_Venta.Vista
             }
         }
 
-        private void txtBusqueda_TextChanged(object sender, TextChangedEventArgs e)
+        private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-           
+            string direccionServicioWeb3 = "http://localhost/WebService_PuntoVenta/ws/DatosTablas.asmx";
+            BasicHttpBinding basicHttp2 = new();
+            EndpointAddress endpoint = new(direccionServicioWeb3);
+            DatosTablasSoapClient clienteTabla1 = new(basicHttp2, endpoint);
+            
+            /*gvInventario.DataSource = clienteTabla1.DatosTablaProductos();
+            gvInventario.DatBind();*/
+        }
+
+        private void gvInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
