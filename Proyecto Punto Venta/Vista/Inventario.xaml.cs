@@ -94,7 +94,7 @@ namespace Proyecto_Punto_Venta.Vista
             DatosTablasSoapClient clienteTabla1 = new(basicHttp2, endpoint);
             
             /*gvInventario.DataSource = clienteTabla1.DatosTablaProductos();
-            gvInventario.DatBind();*/
+            gvInventario.DatBind(); */
         }
 
         private void gvInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
