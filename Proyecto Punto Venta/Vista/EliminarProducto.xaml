@@ -34,7 +34,7 @@
                     <RadioButton x:Name="rbtnDisp" Content="Disponible"/>
                     <RadioButton x:Name="rbtnNoDisp" Content="No Disponible"/>
                 </StackPanel>
-                <ComboBox x:Name="cmbCategoria" Margin="0, 10 " SelectionChanged="cmbCategoria_SelectionChanged">
+                <ComboBox x:Name="cmbCategoria" Margin="0, 10 ">
                     <ComboBoxItem IsSelected="True">Categorias</ComboBoxItem>
                     <ComboBoxItem>Frutas y Verduras</ComboBoxItem>
                     <ComboBoxItem>Carnes</ComboBoxItem>
