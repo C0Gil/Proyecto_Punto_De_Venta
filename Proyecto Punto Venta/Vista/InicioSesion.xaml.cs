@@ -27,33 +27,32 @@ namespace Proyecto_Punto_Venta.Vista
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener usuario y contraseña de los campos de texto
             string usuario = txtUser.Text;
-            string contrasena = txtPsw.Text;
+            //string contrasena = txtPsw.Text;
+            string contrasena = txtPsw.Password;
 
-            // Crear cliente del servicio web
-            string direccionServicioWeb = "http://localhost/WebService_PuntoVenta/ws/login.asmx";
+            string direccionServicioWeb = "http://localhost/webService_tienda/ws/login.asmx";
             ServiceReferenceLogin.login1SoapClient client = new ServiceReferenceLogin.login1SoapClient(new System.ServiceModel.BasicHttpBinding(), new System.ServiceModel.EndpointAddress(direccionServicioWeb));
-
-            // Llamar a la función de inicio de sesión del servicio web
             ServiceReferenceLogin.ValidacionSesion resultado = client.ValidarSesion(usuario, contrasena);
-
-            // Verificar el resultado de la validación de sesión
             if (resultado.Resultado)
             {
-                // Iniciar sesión exitosa
-                MessageBox.Show("Inicio de sesión exitoso");
-                MainWindow mainWindow = new MainWindow();
-                this.Close();
-                mainWindow.Show();
-                // Aquí puedes abrir la ventana principal de tu aplicación
+                string rol = resultado.TipoUsuario;
+                if (rol == "empleado")
+                {
+                    MessageBox.Show("Bienvenido Empleado");
+                }
+                else if (rol == "admin")
+                {
+                    MessageBox.Show("Bienvenido Administrador");
+                    MainWindow mainWindow = new MainWindow();
+                    this.Close();
+                    mainWindow.Show();
+                }
             }
             else
             {
-                // Iniciar sesión fallida
                 MessageBox.Show("Inicio de sesión fallido");
             }
         }

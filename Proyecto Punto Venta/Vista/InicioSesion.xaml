@@ -17,7 +17,8 @@
             <TextBox x:Name="txtUser" Width="240" FontSize="16" Margin="0"/>
 
             <Label Content="Contraseña" Width="240" FontSize="16" Margin="30,10"/>
-            <TextBox x:Name="txtPsw"  TextWrapping="Wrap" Width="240" FontSize="16" Margin="0,0,0,10"/>
+            <PasswordBox x:Name="txtPsw" Width="240" FontSize="16" Margin="0,0,0,10" PasswordChar="*" />
+
 
             <Button Content="Iniciar Sesión" Height="26" Width="140" Click="Button_Click" Margin="0,10,0,40"
                     Style="{StaticResource ButonNormal}"/>
