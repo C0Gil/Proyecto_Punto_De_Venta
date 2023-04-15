@@ -1,0 +1,29 @@
+﻿<Window x:Class="Proyecto_Punto_Venta.Vista.BuscarProducto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Punto_Venta.Vista"
+        mc:Ignorable="d"
+        Title="BuscarProducto" Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Background="#fffffe">
+    <Grid>
+        <Label Content="Buscar Producto" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top"/>
+        <Label Content="Busca el producto que desees eliminar o modifcar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 35"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 70, 0, 60">
+            <Label Content="Ingresa el Código:" Width="110" Height="30" FontWeight="DemiBold" Margin="10, 0, 0, 0" />
+            <TextBox Height="20" Width="120" Margin="5, 0, 10, 0" TextAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 130, 0, 10">
+            <Button Content="Buscar" Height="20" Width="80" Margin="10, 5, 10, 5"
+                    Style="{StaticResource ButonNormal}"/>
+            <Button Content="Cancelar" Height="20" Width="80" Margin="0, 5, 10, 5"
+                    Style="{StaticResource ButonNegar}"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

@@ -13,7 +13,7 @@
         <TextBlock Text="Modificar Producto" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,420"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,88">
-            <StackPanel Orientation="Vertical" Height="268">
+            <StackPanel Orientation="Vertical" Height="290">
                 <Label Content="Codigo De Producto: " Margin="5"/>
                 <Label Content="Nombre De Producto: " Margin="5"/>
                 <Label Content="Precio De Producto: " Margin="5"/>
@@ -21,18 +21,28 @@
                 <Label Content="Fecha De Caducidad:" Margin="5"/>
                 <Label Content="Cantidad En existencia: " Margin="5"/>
                 <Label Content="Disponible: " Margin="5"/>
+                <Label Content="Categoria: " Margin="5"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Height="265">
-                <TextBox Width="120" Height="20" Margin="0,10,0,5"/>
-                <TextBox Width="120" Height="20" Margin="0,8,0,5"/>
-                <TextBox Width="120" Height="20" Margin="0,11,0,5" InputScope="Number"/>
-                <TextBox Width="120" Height="20" Margin="0,11,0,5" InputScope="Number"/>
-                <DatePicker Margin="5,8,5,5"/>
-                <TextBox Width="120" Height="20" Margin="0,10,0,5" InputScope="Number"/>
+            <StackPanel Orientation="Vertical" Height="290">
+                <TextBox x:Name="txtCodigo" Width="120" Height="20" Margin="0,10,0,5" />
+                <TextBox x:Name="txtProducto" Width="120" Height="20" Margin="0,8,0,5"/>
+                <TextBox x:Name="txtPrecio" Width="120" Height="20" Margin="0,11,0,5"/>
+                <TextBox x:Name="txtCosto" Width="120" Height="20" Margin="0,11,0,5"/>
+                <DatePicker x:Name="dtpckFechaCad" Margin="5,8,5,5"/>
+                <TextBox x:Name="txtStock" Width="120" Height="20" Margin="0,10,0,5"/>
                 <StackPanel Orientation="Vertical" Margin="5,6,5,0">
-                    <RadioButton Content="Disponible"/>
-                    <RadioButton Content="No Disponible"/>
+                    <RadioButton x:Name="rbtnDisp" Content="Disponible"/>
+                    <RadioButton x:Name="rbtnNoDisp" Content="No Disponible"/>
                 </StackPanel>
+                <ComboBox x:Name="cmbCategoria" Margin="0, 10">
+                    <ComboBoxItem IsSelected="True">Categorias</ComboBoxItem>
+                    <ComboBoxItem>Frutas y Verduras</ComboBoxItem>
+                    <ComboBoxItem>Carnes</ComboBoxItem>
+                    <ComboBoxItem>Semillas y Especias</ComboBoxItem>
+                    <ComboBoxItem>Plasticos y Desechables</ComboBoxItem>
+                    <ComboBoxItem>Limpieza</ComboBoxItem>
+                    <ComboBoxItem>Otros</ComboBoxItem>
+                </ComboBox>
             </StackPanel>
         </StackPanel>
 

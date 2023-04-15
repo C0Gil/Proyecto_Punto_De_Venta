@@ -33,7 +33,7 @@ namespace Proyecto_Punto_Venta.Vista
             //string contrasena = txtPsw.Text;
             string contrasena = txtPsw.Password;
 
-            string direccionServicioWeb = "http://localhost/webService_tienda/ws/login.asmx";
+            string direccionServicioWeb = "http://localhost/WebService_PuntoVenta/ws/login.asmx";
             ServiceReferenceLogin.login1SoapClient client = new ServiceReferenceLogin.login1SoapClient(new System.ServiceModel.BasicHttpBinding(), new System.ServiceModel.EndpointAddress(direccionServicioWeb));
             ServiceReferenceLogin.ValidacionSesion resultado = client.ValidarSesion(usuario, contrasena);
             if (resultado.Resultado)

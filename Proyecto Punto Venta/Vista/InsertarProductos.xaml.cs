@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Proyecto_Punto_Venta.Vista
 {
@@ -88,5 +89,7 @@ namespace Proyecto_Punto_Venta.Vista
         {
 
         }
+
+        
     }
 }
