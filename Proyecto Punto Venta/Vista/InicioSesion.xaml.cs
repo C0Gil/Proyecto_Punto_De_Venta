@@ -58,14 +58,11 @@ namespace Proyecto_Punto_Venta.Vista
                     SesionUsuario.NombreUsuario = usuario;
                     SesionUsuario.Rol = "admin";
                 }
-                else
-                {
-                    MessageBox.Show("El usuario o contraseña con incorrecos");
-                }
+                
             }
             else
             {
-                MessageBox.Show("Inicio se sesion fallido");
+                MessageBox.Show("El usuario o contraseña con incorrectos");
             }
 
         }

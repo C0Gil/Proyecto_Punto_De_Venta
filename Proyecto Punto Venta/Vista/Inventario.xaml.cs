@@ -3,6 +3,7 @@ using ServiceReferenceCrud;
 using ServiceReferenceTablas;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -88,13 +89,9 @@ namespace Proyecto_Punto_Venta.Vista
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            string direccionServicioWeb3 = "http://localhost/WebService_PuntoVenta/ws/DatosTablas.asmx";
-            BasicHttpBinding basicHttp2 = new();
-            EndpointAddress endpoint = new(direccionServicioWeb3);
-            DatosTablasSoapClient clienteTabla1 = new(basicHttp2, endpoint);
-            
-            /*gvInventario.DataSource = clienteTabla1.DatosTablaProductos();
-            gvInventario.DatBind(); */
+            DataAccess dataAccess = new DataAccess();
+            DataTable dataTable = dataAccess.ExecuteQuery("SELECT * FROM Productos");
+            gvInventario.ItemsSource = dataTable.DefaultView;
         }
 
         private void gvInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
