@@ -31,7 +31,7 @@ namespace Proyecto_Punto_Venta.Vista
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Dirección del servicio web
-            string direccionServicioWeb1 = "http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx";
+            string direccionServicioWeb1 = "http://localhost/webService_tienda/ws/CrudProductos.asmx";
 
             BasicHttpBinding basicHttp = new();
             EndpointAddress endpoint = new(direccionServicioWeb1);

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Proyecto_Punto_Venta.Core;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,14 @@ namespace Proyecto_Punto_Venta.Vista
         public HistorialVentas()
         {
             InitializeComponent();
+            Tabla();
+        }
+
+        public void Tabla()
+        {
+            DataAccess dataAccess = new DataAccess();
+            DataTable dataTable = dataAccess.ExecuteQuery("SELECT * FROM [tienda].[dbo].[VistaVentaVendedor]");
+            gvHistorialVenta.ItemsSource = dataTable.DefaultView;
         }
     }
 }

@@ -1,22 +1,11 @@
 ﻿using Proyecto_Punto_Venta.Core;
 using ServiceReferenceCrud;
-using ServiceReferenceTablas;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Proyecto_Punto_Venta.Vista
 {
@@ -28,6 +17,7 @@ namespace Proyecto_Punto_Venta.Vista
         public Inventario()
         {
             InitializeComponent();
+            Tabla();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -50,7 +40,7 @@ namespace Proyecto_Punto_Venta.Vista
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            string direccionServicioWeb1 = "http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx";
+            string direccionServicioWeb1 = "http://localhost/webService_tienda/ws/CrudProductos.asmx";
             string id, producto, pVenta, pCompra, stock, disponibilidad, categoria;
 
             BasicHttpBinding basicHttp = new();
@@ -87,10 +77,10 @@ namespace Proyecto_Punto_Venta.Vista
             }
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        public void Tabla()
         {
             DataAccess dataAccess = new DataAccess();
-            DataTable dataTable = dataAccess.ExecuteQuery("SELECT * FROM Productos");
+            DataTable dataTable = dataAccess.ExecuteQuery("SELECT * FROM [tienda].[dbo].[VistaProductoCategoria]");
             gvInventario.ItemsSource = dataTable.DefaultView;
         }
 

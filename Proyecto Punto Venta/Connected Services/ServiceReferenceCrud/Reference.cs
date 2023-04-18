@@ -757,11 +757,11 @@ namespace ServiceReferenceCrud
         {
             if ((endpointConfiguration == EndpointConfiguration.CrudProductosSoap))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx");
+                return new System.ServiceModel.EndpointAddress("http://localhost/webService_tienda/ws/CrudProductos.asmx");
             }
             if ((endpointConfiguration == EndpointConfiguration.CrudProductosSoap12))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx");
+                return new System.ServiceModel.EndpointAddress("http://localhost/webService_tienda/ws/CrudProductos.asmx");
             }
             throw new System.InvalidOperationException(string.Format("No se pudo encontrar un punto de conexión con el nombre \"{0}\".", endpointConfiguration));
         }

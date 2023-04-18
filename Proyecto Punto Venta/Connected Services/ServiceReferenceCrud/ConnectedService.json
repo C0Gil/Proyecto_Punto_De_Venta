@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost/WebService_PuntoVenta/ws/CrudProductos.asmx"
+      "http://localhost/webService_tienda/ws/CrudProductos.asmx"
     ],
     "collectionTypes": [
       "System.Array",

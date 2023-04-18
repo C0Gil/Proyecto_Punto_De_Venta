@@ -33,8 +33,7 @@
                         Style="{StaticResource ButonNormal}"/>
                 <Button Content="Modificar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,10,0,10" Click="Button_Click_2"
                         Style="{StaticResource ButonNormal}"/>
-                <Button Content="Actualizar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="30" Margin="0,10,0,10"
-                        Style="{StaticResource ButonNormal}" Click="Button_Click_4"/>
+                
             </StackPanel>
         </StackPanel>
         
