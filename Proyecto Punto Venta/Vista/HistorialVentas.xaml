@@ -19,7 +19,7 @@
                 <Button Content="Corte De Caja" Width="100" Height="25" Margin="10,0" 
                         Style="{StaticResource ButonNormal}"/>
                 <Button Content="Generar Reporte" Width="100" Height="25"
-                        Style="{StaticResource ButonNormal}"/>
+                        Style="{StaticResource ButonNormal}" Click="Button_Click"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="10,0,30,0">
