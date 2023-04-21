@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Punto_Venta.Vista"
         mc:Ignorable="d"
-        Title="EliminarProducto" Height="500" Width="400"
+        Title="EliminarProducto" Height="550" Width="400"
                 WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         Background="#fffffe">
     <Grid>
-        <TextBlock Text="Eliminar Producto" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,420"/>
+        <TextBlock Text="Eliminar Producto" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,400"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,88">
-            <StackPanel Orientation="Vertical" Height="290">
-                <Label Content="Codigo De Producto: " Margin="5"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,100">
+            <StackPanel Orientation="Vertical" Height="375">
+                <Label Content="Codigo De Producto: " Margin="5, 0, 0, 50"/>
                 <Label Content="Nombre De Producto: " Margin="5"/>
                 <Label Content="Precio De Producto: " Margin="5"/>
                 <Label Content="Costo De Producto: " Margin="5"/>
@@ -23,8 +23,8 @@
                 <Label Content="Disponible: " Margin="5"/>
                 <Label Content="Categoria: " Margin="5"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Height="290">
-                <TextBox x:Name="txtCodigo" Width="120" Height="20" Margin="0,10,0,5" IsReadOnly="True"/>
+            <StackPanel Orientation="Vertical" Height="375">
+                <TextBox x:Name="txtCodigo" Width="120" Height="20" Margin="0,8,0,50" />
                 <TextBox x:Name="txtProducto" Width="120" Height="20" Margin="0,8,0,5" IsReadOnly="True"/>
                 <TextBox x:Name="txtPrecio" Width="120" Height="20" Margin="0,11,0,5" InputScope="Number" IsReadOnly="True"/>
                 <TextBox x:Name="txtCosto" Width="120" Height="20" Margin="0,11,0,5" InputScope="Number" IsReadOnly="True"/>
@@ -36,7 +36,7 @@
                 </StackPanel>
                 <ComboBox x:Name="cmbCategoria" Margin="0, 10" IsHitTestVisible="False">
                     <ComboBoxItem IsSelected="True">Categorias</ComboBoxItem>
-                    <ComboBoxItem>Frutas y Verduras</ComboBoxItem>
+                    <ComboBoxItem x:Name="fV">Frutas y Verduras</ComboBoxItem>
                     <ComboBoxItem>Carnes</ComboBoxItem>
                     <ComboBoxItem>Semillas y Especias</ComboBoxItem>
                     <ComboBoxItem>Plasticos y Desechables</ComboBoxItem>
@@ -46,7 +46,12 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,401,0,11">
+        <StackPanel Margin="83,85,83,380">
+            <Button Content="Buscar" Width="100" Height="20" Margin="10" 
+                    Style="{StaticResource ButonNormal}" Click="Button_Click_2"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,400,0,10">
             <Button Content="Eliminar" Width="100" Height="20" Margin="10,0" Click="Button_Click"
                     Style="{StaticResource ButonNormal}"/>
             <Button Content="Cancelar" Width="100" Height="20" Margin="10,0" Click="Button_Click_1"

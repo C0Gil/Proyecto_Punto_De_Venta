@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ServiceReferenceCrud;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,12 @@ namespace Proyecto_Punto_Venta.Vista
         public BuscarProducto()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+
         }
     }
 }

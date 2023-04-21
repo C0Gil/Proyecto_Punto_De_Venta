@@ -10,7 +10,7 @@ namespace Proyecto_Punto_Venta.Core
 {
     public class DataAccess
     {
-        private string connectionString = "Data Source=LAPTOP-I0DKJOIN\\ERICKSQLEXPRESS; Initial Catalog = tienda; User ID = sa; Password=1706Erick";
+        private string connectionString = "Data Source=DESKTOP-H08JMC2\\SQLEXPRESS; Initial Catalog=tienda; User ID=sa; Password=1234.abcd";
 
         public DataTable ExecuteQuery(string query)
         {

@@ -79,7 +79,7 @@ namespace Proyecto_Punto_Venta.Vista
             tabla.AddCell(new iTextSharp.text.Phrase("Monto"));
             tabla.AddCell(new iTextSharp.text.Phrase("Precio de venta"));
 
-            string cadenaConexion = "Data Source=JONATHAN\\SQLEXPRESS; Initial Catalog=PCSG1JHON; User ID= sa; Password=aaa";
+            string cadenaConexion = "Data Source=DESKTOP-H08JMC2\\SQLEXPRESS; Initial Catalog=tienda; User ID=sa; Password=1234.abcd";
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
 

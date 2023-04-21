@@ -15,12 +15,12 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 70, 0, 60">
             <Label Content="Ingresa el Código:" Width="110" Height="30" FontWeight="DemiBold" Margin="10, 0, 0, 0" />
-            <TextBox Height="20" Width="120" Margin="5, 0, 10, 0" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtBuscar" Height="20" Width="120" Margin="5, 0, 10, 0" TextAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 130, 0, 10">
             <Button Content="Buscar" Height="20" Width="80" Margin="10, 5, 10, 5"
-                    Style="{StaticResource ButonNormal}"/>
+                    Style="{StaticResource ButonNormal}" Click="Button_Click"/>
             <Button Content="Cancelar" Height="20" Width="80" Margin="0, 5, 10, 5"
                     Style="{StaticResource ButonNegar}"/>
         </StackPanel>

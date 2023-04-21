@@ -9,36 +9,56 @@
     <StackPanel>
 
         <TextBlock Text="Ventas" FontSize="32" Margin="0,0,0,10" FontWeight="Bold"/>
-        
+
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
             <Label Content="Cant." Width="35" Margin="10,10,0,10"/>
-            <TextBox Width="50" Margin="10,10,0,10" FontSize="14" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtCantidadProducto" Width="50" Margin="10,10,0,10" FontSize="14" TextAlignment="Center" VerticalAlignment="Center"/>
             <Label Content="Cod. Product" Width="80" Margin="10,10,0,10"/>
-            <TextBox Width="300" Margin="10,10,0,10" VerticalAlignment="Center" TextAlignment="Right" FontSize="14"/>
+            <TextBox x:Name="txtBuscarInsertar" Width="300" Margin="10,10,0,10" VerticalAlignment="Center" TextAlignment="Right" FontSize="14"/>
             <Button Content="Agregar" Width="60" Margin="10,10,0,10"
-                    Style="{StaticResource ButonNormal}"/>
+                    Style="{StaticResource ButonNormal}" Click="Button_Click"/>
             <Button Content="Quitar" Width="60" Margin="10,10,0,10"
-                    Style="{StaticResource ButonNegar}"/>
+                    Style="{StaticResource ButonNegar}" Click="Button_Click_1"/>
+            <Label Content="ID Venta" Width="60" Margin="10,10,0,10"/>
+            <Label x:Name="lblIdVenta" Content="" Width="60" Margin="10,10,0,10"/>
         </StackPanel>
 
         <StackPanel Margin="10,0,30,0">
-            <DataGrid d:ItemsSource="{d:SampleData ItemCount=10}"/>
+
+            <Grid>
+                <DataGrid x:Name="gdTablaVentas" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Codigo" Width="150" Binding="{Binding Codigo}"/>
+                        <DataGridTextColumn Header="Producto" Width="400" Binding="{Binding Producto}"/>
+                        <DataGridTextColumn Header="Cantidad" Width="100" Binding="{Binding Cantidad}"/>
+                        <DataGridTextColumn Header="Precio" Width="120" Binding="{Binding Precio}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  Margin="10,10,0,10">
-            <Label Content="SubTotal:" FontSize="16"/>
-            <Label Content="$000.00" FontSize="16"/>
-            <Label Content="Iva:" FontSize="16"/>
-            <Label Content="$000.00" FontSize="16"/>
-            <Label Content="Total:" FontWeight="Bold" FontSize="16"/>
-            <Label Content="$000.00" FontWeight="Bold" FontSize="16"/>
+            <Label Content="SubTotal: $" FontSize="16"/>
+            <Label x:Name="lblSubtotal" Content="000.00" FontSize="16"/>
+            <Label Content="Iva: $" FontSize="16"/>
+            <Label x:Name="lblIva" Content="000.00" FontSize="16"/>
+
+            <Label Content="Descuento: $" FontSize="16"/>
+            <Label x:Name="lblDescuento" Content="000.00" FontSize="16"/>
+
+            <Label Content="Total: $" FontWeight="Bold" FontSize="16"/>
+            <Label x:Name="lblTotal" Content="000.00" FontWeight="Bold" FontSize="16"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <Button Content="Realizar Venta" Width="100" Height="40" Margin="10,0,0,0"
-                    Style="{StaticResource ButonNormal}"/>
-            <Button Content="Cancelar Venta" Width="100" Height="40" Margin="10,0,0,0"
-                    Style="{StaticResource ButonNegar}"/>
+                    Style="{StaticResource ButonNormal}" Click="Button_Click_3"/>
+            <Button Content="Realizar Venta" Width="100" Height="40" Margin="10,0,0,0"
+                    Style="{StaticResource ButonNegar}" Click="Button_Click_2"/>
+
+            <Button Content="Agregar Descuento" Width="110" Height="40" Margin="30,0,0,0"
+                    Style="{StaticResource ButonNormal}" Click="Button_Click_4"/>
         </StackPanel>
 
     </StackPanel>

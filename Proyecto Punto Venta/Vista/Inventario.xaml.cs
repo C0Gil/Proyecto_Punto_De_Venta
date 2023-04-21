@@ -28,6 +28,7 @@ namespace Proyecto_Punto_Venta.Vista
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+
             EliminarProducto eliminar= new EliminarProducto();
             eliminar.Show();
         }
