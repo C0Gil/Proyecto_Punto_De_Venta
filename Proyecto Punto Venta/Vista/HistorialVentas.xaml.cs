@@ -6,6 +6,7 @@ using ServiceReferenceReportes;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -24,6 +25,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Proyecto_Punto_Venta.Vista
 {
@@ -47,48 +51,114 @@ namespace Proyecto_Punto_Venta.Vista
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            int mesActual = DateTime.Now.Month;
-            string url = $"http://localhost/webService_tienda/ws/GeneradorReportes.asmx?op=MostrarVentasPorMes={mesActual}";
+            string rutaDescargas = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads\\";
 
-            try
+            iTextSharp.text.Document document = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 50, 50, 25, 25);
+
+            MemoryStream stream = new MemoryStream();
+
+
+            PdfWriter writer = PdfWriter.GetInstance(document, stream);
+
+            document.Open();
+
+
+            iTextSharp.text.Paragraph titulo = new iTextSharp.text.Paragraph("Ventas por mes");
+            titulo.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+            titulo.Font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18, iTextSharp.text.Font.BOLD);
+            document.Add(titulo);
+
+            document.Add(new iTextSharp.text.Paragraph("\n"));
+
+            iTextSharp.text.pdf.PdfPTable tabla = new iTextSharp.text.pdf.PdfPTable(4);
+            tabla.WidthPercentage = 100;
+            tabla.SetWidths(new float[] { 3, 3, 3, 3 });
+
+            tabla.AddCell(new iTextSharp.text.Phrase("Fecha de venta"));
+            tabla.AddCell(new iTextSharp.text.Phrase("Producto"));
+            tabla.AddCell(new iTextSharp.text.Phrase("Monto"));
+            tabla.AddCell(new iTextSharp.text.Phrase("Precio de venta"));
+
+            string cadenaConexion = "Data Source=JONATHAN\\SQLEXPRESS; Initial Catalog=PCSG1JHON; User ID= sa; Password=aaa";
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
-                HttpClient client = new HttpClient();
-                HttpResponseMessage response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
 
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "PDF file";
-                saveFileDialog.FileName = $"ReporteVentas-{mesActual}.pdf";
+                SqlCommand comando = new SqlCommand("MostrarVentasPorMes", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
 
-                if (saveFileDialog.ShowDialog() == true)
+
+                comando.Parameters.AddWithValue("@Mes", 1);
+
+
+                conexion.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+
+
+                while (reader.Read())
                 {
-                    using Stream stream = await response.Content.ReadAsStreamAsync();
-                    byte[] buffer = new byte[16 * 1024];
-                    int bytesRead;
-                    int totalBytesRead = 0;
-                    while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                    {
-                        totalBytesRead += bytesRead;
-                        using FileStream fileStream = new FileStream(saveFileDialog.FileName, FileMode.Append, FileAccess.Write);
-                        await fileStream.WriteAsync(buffer, 0, bytesRead);
-                    }
+                    tabla.AddCell(new iTextSharp.text.Phrase(reader.GetDateTime(0).ToString()));
+                    tabla.AddCell(new iTextSharp.text.Phrase(reader.GetString(1)));
+                    tabla.AddCell(new iTextSharp.text.Phrase(reader.GetDecimal(2).ToString()));
+                    tabla.AddCell(new iTextSharp.text.Phrase(reader.GetDecimal(3).ToString()));
+                }
 
-                    if (totalBytesRead > 0)
-                    {
-                        MessageBox.Show("Reporte descargado exitosamente.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("El archivo descargado está vacío o es corrupto.");
-                        File.Delete(saveFileDialog.FileName);
-                    }
+
+                reader.Close();
+                conexion.Close();
+            }
+
+
+            document.Add(tabla);
+
+            document.Close();
+
+            DataTable dtVentas = new DataTable();
+            using (SqlConnection connection = new SqlConnection(cadenaConexion))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("MostrarVentasPorMes", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Mes", 4); // Aquí se puede cambiar el mes a consultar
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dtVentas);
+            }
+
+
+            PdfPTable table = new PdfPTable(dtVentas.Columns.Count);
+            for (int i = 0; i < dtVentas.Columns.Count; i++)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(dtVentas.Columns[i].ColumnName));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                table.AddCell(cell);
+            }
+
+            for (int i = 0; i < dtVentas.Rows.Count; i++)
+            {
+                for (int j = 0; j < dtVentas.Columns.Count; j++)
+                {
+                    table.AddCell(dtVentas.Rows[i][j].ToString());
                 }
             }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show($"Ha ocurrido un error al descargar el reporte: {ex.Message}");
-            }
 
+            document = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 50, 50, 25, 25);
+
+
+            stream = new MemoryStream();
+
+
+            writer = PdfWriter.GetInstance(document, stream);
+
+
+            document.Open();
+
+
+            document.Add(table);
+
+            document.Close();
+
+            File.WriteAllBytes(rutaDescargas + "ventas_mes_4.pdf", stream.ToArray());
+
+            MessageBox.Show("El PDF se ha generado correctamente en la ruta de descargas por defecto.");
 
 
 
